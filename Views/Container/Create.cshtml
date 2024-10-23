@@ -1,0 +1,33 @@
+@model Container
+
+<form asp-action="Create" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="ContainerNumber"></label>
+        <input asp-for="ContainerNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShipmentDate"></label>
+        <input asp-for="ShipmentDate" class="form-control" type="date" />
+    </div>
+    <div class="form-group">
+        <label asp-for="OriginPort"></label>
+        <input asp-for="OriginPort" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DestinationPort"></label>
+        <input asp-for="DestinationPort" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Status"></label>
+        <select asp-for="Status" class="form-control">
+            <option>In Transit</option>
+            <option>At Dock</option>
+            <option>Delivered</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Upload PDF</label>
+        <input type="file" name="file" accept="application/pdf" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

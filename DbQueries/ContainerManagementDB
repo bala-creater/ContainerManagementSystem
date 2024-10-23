@@ -1,0 +1,32 @@
+CREATE DATABASE ContainerManagementDB;
+GO
+
+USE ContainerManagementDB;
+GO
+
+CREATE TABLE Containers (
+    ContainerID INT IDENTITY(1,1) PRIMARY KEY,
+    ContainerNumber NVARCHAR(50) NOT NULL,
+    ShipmentDate DATE NOT NULL,
+    OriginPort NVARCHAR(100) NOT NULL,
+    DestinationPort NVARCHAR(100) NOT NULL,
+    Status NVARCHAR(20) NOT NULL,
+    DocumentationFilePath NVARCHAR(255) NULL
+);
+GO
+CREATE TABLE Users (
+    UserID INT IDENTITY(1,1) PRIMARY KEY,
+    UserName NVARCHAR(100) NOT NULL,
+    PasswordHash NVARCHAR(255) NOT NULL
+);
+GO
+INSERT INTO Containers (ContainerNumber, ShipmentDate, OriginPort, DestinationPort, Status, DocumentationFilePath)
+VALUES
+('C123456', '2024-10-01', 'Port of Los Angeles', 'Port of Shanghai', 'In Transit', '/docs/C123456.pdf'),
+('C654321', '2024-10-05', 'Port of Hamburg', 'Port of New York', 'At Dock', '/docs/C654321.pdf'),
+('C789012', '2024-10-10', 'Port of Singapore', 'Port of Sydney', 'Delivered', '/docs/C789012.pdf');
+GO
+INSERT INTO Users (UserName, PasswordHash)
+VALUES
+('user1', 'hashed_password1'), -- Replace with actual hashed password
+('user2', 'hashed_password2'); -- Replace with actual hashed password

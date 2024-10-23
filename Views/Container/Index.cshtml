@@ -1,0 +1,28 @@
+@model IEnumerable<Container>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Container Number</th>
+            <th>Shipment Date</th>
+            <th>Origin Port</th>
+            <th>Destination Port</th>
+            <th>Status</th>
+            <th>Documentation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var container in Model)
+        {
+            <tr>
+                <td>@container.ContainerNumber</td>
+                <td>@container.ShipmentDate.ToShortDateString()</td>
+                <td>@container.OriginPort</td>
+                <td>@container.DestinationPort</td>
+                <td>@container.Status</td>
+                <td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
